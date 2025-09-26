@@ -33,7 +33,26 @@ const HomePage = () => {
     <div className="container">
       {/* Header */}
       <div className="header">
-        <h1>KLU E-Commerce App</h1>
+        <h1>KLU CRM App</h1>
+        <nav className="navbar">
+          <ul>
+            <li>
+              <Link to="/about-us">About Us</Link>
+            </li>
+            <li>
+              <Link to="/customers">Customers</Link>
+            </li>
+            <li>
+              <Link to={isAuthenticated ? "/companies" : "/login"}>Companies</Link>
+            </li>
+            <li>
+              <Link to={isAuthenticated ? "/messages" : "/login"}>Messages</Link>
+            </li>
+            <li>
+              <Link to={isAuthenticated ? "/outlook" : "/login"}>Outlook</Link>
+            </li>
+          </ul>
+        </nav>
         <div className="header-right">
           {isAuthenticated ? (
             <div className="profile-menu">
@@ -44,8 +63,8 @@ const HomePage = () => {
               />
               {dropdownOpen && (
                 <div className="dropdown">
-                  <Link to="/cart" onClick={() => setDropdownOpen(false)}>Cart</Link>
-                  <Link to="/orders" onClick={() => setDropdownOpen(false)}>Orders</Link>
+                  <Link to="/messages" onClick={() => setDropdownOpen(false)}>Messages</Link>
+                  <Link to="/outlook" onClick={() => setDropdownOpen(false)}>Outlook</Link>
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               )}
@@ -59,34 +78,13 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Sidebar */}
-      <div className="sidebar">
-        <ul>
-          <li>
-            <Link to="/about-us">About Us</Link>
-          </li>
-          <li>
-            <Link to="/computers">Computers</Link>
-          </li>
-          <li>
-            <Link to={isAuthenticated ? "/mobiles" : "/login"}>Mobiles</Link>
-          </li>
-          <li>
-            <Link to={isAuthenticated ? "/laptops" : "/login"}>Laptops</Link>
-          </li>
-          <li>
-            <Link to={isAuthenticated ? "/pendrives" : "/login"}>Pendrives</Link>
-          </li>
-        </ul>
-      </div>
-
       {/* Main Content */}
       <div className="main">
         <Outlet />
       </div>
 
       {/* Footer */}
-      <div className="footer">@ copyright E-Commerce</div>
+      <div className="footer">@ copyright CRM App</div>
     </div>
   );
 };

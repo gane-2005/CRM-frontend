@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Router basename="/full-stack">
+      <Router basename="/CRM-frontend">
         <Routes>
           <Route path="/" element={<HomePage />}>
             <Route index element={<AboutUs />} />

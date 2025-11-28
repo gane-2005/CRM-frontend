@@ -24,7 +24,7 @@ const Messages = () => {
     e.preventDefault();
     await createMessage(newMessage);
     fetchMessages();
-    setNewMessage({ from: '', subject: '', date: new Date().toISOString().slice(0, 10) });
+    setNewMessage({ sender: '', subject: '', date: new Date().toISOString().slice(0, 10) });
     setShowForm(false);
   };
 
@@ -34,7 +34,7 @@ const Messages = () => {
       <button onClick={() => setShowForm(!showForm)}>{showForm ? 'Close' : 'Add Message'}</button>
       {showForm && (
         <form onSubmit={handleSubmit}>
-          <input type="text" name="from" placeholder="From" value={newMessage.from} onChange={handleInputChange} required />
+          <input type="text" name="sender" placeholder="From" value={newMessage.sender} onChange={handleInputChange} required />
           <input type="text" name="subject" placeholder="Subject" value={newMessage.subject} onChange={handleInputChange} required />
           <button type="submit">Add</button>
         </form>
@@ -42,7 +42,7 @@ const Messages = () => {
       <ul className="message-list">
         {messages.map((message) => (
           <li key={message.id} className="message-item">
-            <div className="message-from">{message.from}</div>
+            <div className="message-from">{message.sender}</div>
             <div className="message-subject">{message.subject}</div>
             <div className="message-date">{message.date}</div>
           </li>

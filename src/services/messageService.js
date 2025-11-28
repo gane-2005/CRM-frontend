@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/messages';
+const API_URL = "/api/messages";
 
 export const getMessages = async () => {
   const response = await axios.get(API_URL);

@@ -14,33 +14,35 @@ import ProductPage from './components/ProductPage'
 import Cart from './components/Cart';
 import Payment from './components/Payment';
 import Orders from './components/Orders';
+import AdminDashboard from './components/AdminDashboard';
 
 
 
 function App() {
   const [count, setCount] = useState(0)
-  
+
   return (
     <>
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />}>
-          <Route index element={<AboutUs />} />
-          <Route path="home" element={<Home />} />
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path="customers" element={<Customers />} />
-          <Route path="companies" element={<Companies />} />
-          <Route path="messages" element={<Messages />} />
-          <Route path="outlook" element={<Outlook />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="productpage" element={<ProductPage />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="payment" element={<Payment />} />
-          <Route path="orders" element={<Orders />} />
-        </Route>
-      </Routes>
-    </Router>
+      <Router basename="/full-stack">
+        <Routes>
+          <Route path="/" element={<HomePage />}>
+            <Route index element={<AboutUs />} />
+            <Route path="home" element={<Home />} />
+            <Route path="about-us" element={<AboutUs />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="companies" element={<Companies />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="outlook" element={<Outlook />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="productpage" element={<ProductPage />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="admin" element={<AdminDashboard />} />
+          </Route>
+        </Routes>
+      </Router>
     </>
   )
 }

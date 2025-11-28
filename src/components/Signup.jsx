@@ -14,7 +14,8 @@ const Signup = () => {
       alert("Signup successful! Please login.");
       navigate("/login");
     } catch (error) {
-      alert("Signup failed!");
+      console.error("Signup error:", error);
+      alert(`Signup failed: ${error.response?.data || error.message}`);
     }
   };
 

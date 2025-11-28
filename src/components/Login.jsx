@@ -9,10 +9,17 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      await login(username, password);
+      const token = await login(username, password);
       localStorage.setItem("isAuthenticated", "true");
       window.dispatchEvent(new Event("storage"));
-      navigate("/");
+
+      // Decode token to check role (simple decode, for production use a library like jwt-decode)
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      if (payload.role === 'ROLE_ADMIN') {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       alert("Invalid credentials!");
     }

@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8081/api/products";  // Backend API URL
+const API_URL = "/api/products";  // Backend API URL
 
 // Fetch products by category (computers, mobiles, laptops, pendrives, or all)
 export const getProducts = async (category = "") => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/${category}`);
+    const response = await axios.get(`${API_URL}/${category}`);
     return response.data;  // Return products array
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -15,5 +15,5 @@ export const getProducts = async (category = "") => {
 
 // Get product image URL
 export const getProductImageUrl = (imagePath) => {
-  return `http://localhost:8081/api/products/images/${imagePath}`;
+  return `http://localhost:8083/api/products/images/${imagePath}`;
 };
